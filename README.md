@@ -1,2 +1,3 @@
-# FAIR4mkdocs
-Repository for testing mkdocs with FAIR information &amp; publishing
+# FAIR-COE
+
+Repository for FAIR-Community of Experts public information, dissemination and publishing.
