@@ -1,0 +1,9 @@
+promotion:
+  release_id: public-docs-example-release
+  repositories:
+    - slug: repo-a
+      ref: refs/tags/docs-public-v1.0.0
+    - slug: repo-b
+      ref: refs/tags/docs-public-v1.0.0
+    - slug: repo-c
+      ref: refs/tags/docs-public-v1.0.0

@@ -1,0 +1,11 @@
+slug: repo-c
+section: Reference Data
+docs_root: public-docs
+nav:
+  - Overview: index.md
+  - Catalogues:
+      - Currency Codes: catalogues/currency-codes.md
+      - Status Codes: catalogues/status-codes.md
+redirects:
+  - from: catalogues/status.md
+    to: catalogues/status-codes.md

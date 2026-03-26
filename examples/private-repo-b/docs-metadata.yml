@@ -1,0 +1,11 @@
+slug: repo-b
+section: Semantic Model
+docs_root: public-docs
+nav:
+  - Overview: index.md
+  - Model:
+      - Canonical Model: model/canonical-model.md
+      - Account: model/account.md
+redirects:
+  - from: model/concepts.md
+    to: model/canonical-model.md

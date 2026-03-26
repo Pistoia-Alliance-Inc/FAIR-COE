@@ -1,0 +1,19 @@
+repositories:
+  - id: repo-a
+    slug: repo-a
+    repository: your-org/private-repo-a
+    local_example_path: examples/private-repo-a
+    checkout_path: .cache/repos/repo-a
+    remote_url_env: REPO_A_URL
+  - id: repo-b
+    slug: repo-b
+    repository: your-org/private-repo-b
+    local_example_path: examples/private-repo-b
+    checkout_path: .cache/repos/repo-b
+    remote_url_env: REPO_B_URL
+  - id: repo-c
+    slug: repo-c
+    repository: your-org/private-repo-c
+    local_example_path: examples/private-repo-c
+    checkout_path: .cache/repos/repo-c
+    remote_url_env: REPO_C_URL

@@ -1,0 +1,12 @@
+slug: repo-a
+section: Payments API
+docs_root: public-docs
+nav:
+  - Overview: index.md
+  - Architecture:
+      - Event Flow: architecture/event-flow.md
+  - API:
+      - Endpoints: api/endpoints.md
+redirects:
+  - from: architecture/legacy-flow.md
+    to: architecture/event-flow.md

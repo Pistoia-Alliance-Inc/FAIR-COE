@@ -1,0 +1,4 @@
+mkdocs>=1.6
+mkdocs-material>=9.6
+mkdocs-redirects>=1.2
+PyYAML>=6.0
