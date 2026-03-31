@@ -38,10 +38,7 @@ def main():
             if re.fullmatch(r"[0-9a-fA-F]{40}", version):
                 continue
             if version != recommended:
-                errors.append(
-                    f"{wf.name}: '{action}@{version}' is not approved. "
-                    f"Use '{action}@{recommended}' or a 40-char commit SHA."
-                )
+                errors.append(f"{wf.name}: '{action}@{version}' is not approved. Use '{action}@{recommended}' or a 40-char commit SHA.")
         if "FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true" not in text:
             errors.append(f"{wf.name}: missing FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true workflow guardrail.")
     if errors:

@@ -34,13 +34,11 @@ def main():
             errors.append(f"MKDOCS_SITE_URL must end with '/', got: {site_url}")
         if "127.0.0.1" in site_url or "localhost" in site_url:
             errors.append(f"MKDOCS_SITE_URL must not be a local URL for deployed builds, got: {site_url}")
-
     if errors:
         print("Site URL validation failed:")
         for e in errors:
             print(f" - {e}")
         sys.exit(1)
-
     print("Site URL validation passed.")
 
 if __name__ == "__main__":

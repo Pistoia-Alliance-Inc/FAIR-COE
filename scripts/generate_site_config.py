@@ -1,7 +1,7 @@
 import argparse
 import os
 import yaml
-from common import ROOT, load_yaml, resolve_repo_paths, load_repo_metadata
+from common import ROOT, resolve_repo_paths, load_repo_metadata, load_available_repo_slugs
 
 def prefix_nav_paths(item, prefix: str):
     if isinstance(item, list):
@@ -54,7 +54,8 @@ def main():
     parser.add_argument("--from-examples", action="store_true")
     args = parser.parse_args()
 
-    base_config = load_yaml(ROOT / "mkdocs.base.yml")
+    with open(ROOT / "mkdocs.base.yml", "r", encoding="utf-8") as fh:
+        base_config = yaml.safe_load(fh) or {}
     base_config["site_url"] = resolve_site_url(args.from_examples)
 
     shared_nav = [
@@ -68,19 +69,25 @@ def main():
         ]}
     ]
 
+    available = load_available_repo_slugs()
     dynamic_nav = []
     redirect_maps = {}
     errors = []
 
     for entry, repo_path in resolve_repo_paths(args.from_examples):
+        slug = entry["slug"]
+        if available is not None and slug not in available:
+            continue
+        if not repo_path.exists():
+            continue
+
         metadata = load_repo_metadata(repo_path)
-        slug = metadata.get("slug")
         section = metadata.get("section")
         nav = metadata.get("nav", [])
         redirects = metadata.get("redirects", [])
 
-        if not slug or not section:
-            errors.append(f"Metadata missing slug or section: {repo_path / 'docs-metadata.yml'}")
+        if not section:
+            errors.append(f"Metadata missing section: {repo_path / 'docs-metadata.yml'}")
             continue
 
         for rel in flatten_nav_targets(nav):

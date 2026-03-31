@@ -1,5 +1,7 @@
 from pathlib import Path
+import os
 import yaml
+import json
 
 ROOT = Path(__file__).resolve().parent.parent
 
@@ -27,3 +29,16 @@ def resolve_repo_paths(from_examples: bool):
         repo_path = ROOT / entry["local_example_path"] if from_examples else ROOT / entry["checkout_path"]
         repos.append((entry, repo_path))
     return repos
+
+def is_bootstrap_mode() -> bool:
+    return os.environ.get("DOCS_BOOTSTRAP_MODE", "").strip().lower() == "true"
+
+def available_repos_manifest_path() -> Path:
+    return ROOT / ".cache" / "available-repos.json"
+
+def load_available_repo_slugs():
+    p = available_repos_manifest_path()
+    if not p.exists():
+        return None
+    data = json.loads(p.read_text(encoding="utf-8"))
+    return set(data.get("available_slugs", []))

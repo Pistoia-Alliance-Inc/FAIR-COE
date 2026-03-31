@@ -13,6 +13,7 @@ permissions:
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
   MKDOCS_SITE_URL: https://your-org.github.io/your-public-repo/
+  DOCS_BOOTSTRAP_MODE: true
 
 jobs:
   build:
@@ -27,6 +28,7 @@ jobs:
       - run: python scripts/check_site_url.py
       - env:
           DOCS_READ_TOKEN: ${{ secrets.DOCS_READ_TOKEN }}
+          DOCS_BOOTSTRAP_MODE: true
         run: python scripts/checkout_repos.py
       - run: python scripts/check_promotion_policy.py
       - run: python scripts/sync_public_docs.py

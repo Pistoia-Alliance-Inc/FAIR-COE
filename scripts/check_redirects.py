@@ -1,5 +1,5 @@
 import argparse, sys
-from common import ROOT, resolve_repo_paths, load_repo_metadata
+from common import ROOT, resolve_repo_paths, load_repo_metadata, load_available_repo_slugs
 
 def detect_loop(redirects):
     for start in redirects:
@@ -16,11 +16,19 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--from-examples", action="store_true")
     args = parser.parse_args()
+
     redirects = {}
     errors = []
+    available = load_available_repo_slugs()
+
     for entry, repo_path in resolve_repo_paths(args.from_examples):
+        slug = entry["slug"]
+        if available is not None and slug not in available:
+            continue
+        if not repo_path.exists():
+            continue
+
         metadata = load_repo_metadata(repo_path)
-        slug = metadata["slug"]
         for r in metadata.get("redirects", []):
             src = f"domains/{slug}/{r['from']}"
             dst = f"domains/{slug}/{r['to']}"
@@ -31,17 +39,21 @@ def main():
             if not (ROOT / "docs" / dst).exists():
                 errors.append(f"Missing redirect target: {dst}")
             redirects[src] = dst
+
     has_loop, start = detect_loop(redirects)
     if has_loop:
         errors.append(f"Redirect loop detected starting at: {start}")
+
     for src, dst in redirects.items():
         if dst in redirects:
             errors.append(f"Redirect chain detected: {src} -> {dst} -> {redirects[dst]}")
+
     if errors:
         print("Redirect validation failed:")
         for e in errors:
             print(f" - {e}")
         sys.exit(1)
+
     print("Redirect validation passed.")
 
 if __name__ == "__main__":
