@@ -12,7 +12,7 @@ permissions:
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
-  MKDOCS_SITE_URL: https://your-org.github.io/your-public-repo/
+  MKDOCS_SITE_URL: https://Pistoia-Alliance-Inc.github.io/FAIR-COE/
   DOCS_BOOTSTRAP_MODE: true
 
 jobs:
