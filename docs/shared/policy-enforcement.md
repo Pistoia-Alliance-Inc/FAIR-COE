@@ -2,12 +2,10 @@
 
 ## Recommended CI gates
 
+- workflow-guardrails
 - promotion-policy
+- site-url-policy
 - contract-validation
 - redirect-validation
 - link-and-anchor-validation
 - site-build
-
-## Branch protection
-
-Require these checks before merge on the protected default branch.

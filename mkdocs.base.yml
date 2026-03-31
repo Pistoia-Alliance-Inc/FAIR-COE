@@ -1,7 +1,8 @@
 site_name: Enterprise Documentation Hub
-site_url: https://example.github.io/docs-hub/
+
 theme:
   name: material
+
 plugins:
   - search
   - redirects:

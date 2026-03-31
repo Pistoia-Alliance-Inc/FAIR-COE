@@ -1,4 +1,5 @@
-import re, sys
+import re
+import sys
 from common import load_registry, promotion_map
 
 TAG_PATTERN = re.compile(r"^refs/tags/docs-public-v\d+\.\d+\.\d+$")
