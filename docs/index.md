@@ -4,7 +4,7 @@
 This Community of Experts supports the implementation of the Findable, Accessible, Interoperable and Re-usable (FAIR) guiding principles in the life sciences by promoting best practices as well as supporting enabling methods and tools across lifescience industries.
 
 ## Community Webpage
-- This (Pistoia Alliance)[https://pistoiaalliance.org/] Community of Experts supports the implementation of the Findable, Accessible, Interoperable and Re-usable (FAIR) guiding principles in the life sciences by promoting best practices as well as supporting enabling methods and tools across industries.
+- This [Pistoia Alliance](https://pistoiaalliance.org/) Community of Experts supports the implementation of the Findable, Accessible, Interoperable and Re-usable (FAIR) guiding principles in the life sciences by promoting best practices as well as supporting enabling methods and tools across industries.
 - Link: https://pistoiaalliance.org/community/fair-for-pharma/
 
 ## FAIR Maturity Matrix
