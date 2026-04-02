@@ -1,4 +1,6 @@
-# Enterprise Documentation Hub
+# Pistoia Alliance
+## FAIR-Community of Experts Documentation Hub
+
 
 This public site can build and deploy even when no private repositories are available yet.
 
