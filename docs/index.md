@@ -1,5 +1,11 @@
 # Pistoia Alliance
-## FAIR-Community of Experts Documentation Hub
+# FAIR-Community of Experts Documentation Hub
+
+This Community of Experts supports the implementation of the Findable, Accessible, Interoperable and Re-usable (FAIR) guiding principles in the life sciences by promoting best practices as well as supporting enabling methods and tools across lifescience industries.
+
+## Community Webpage
+- This (Pistoia Alliance)[https://pistoiaalliance.org/] Community of Experts supports the implementation of the Findable, Accessible, Interoperable and Re-usable (FAIR) guiding principles in the life sciences by promoting best practices as well as supporting enabling methods and tools across industries.
+- Link: https://pistoiaalliance.org/community/fair-for-pharma/
 
 ## FAIR Maturity Matrix
 - An organisational maturity model of FAIR implementation.
@@ -18,5 +24,5 @@
 - Use bootstrap mode to publish the shared/public framework pages first, then onboard private repositories incrementally.
 
 ## Licences
-Content: [CC by 4.0](https://creativecommons.org/licenses/by/4.0/deed.en) 
-Executable code: [MIT](https://mit-license.org/) 
+- Content: [CC by 4.0](https://creativecommons.org/licenses/by/4.0/deed.en) 
+- Executable code: [MIT](https://mit-license.org/) 
