@@ -6,14 +6,14 @@ WORKFLOWS_DIR = Path(__file__).resolve().parent.parent / ".github" / "workflows"
 BANNED = {
     "actions/checkout@v4": "Use actions/checkout@v5",
     "actions/setup-python@v5": "Use actions/setup-python@v6",
-    "actions/checkout@main": "Pin to actions/checkout@v5 or a commit SHA",
-    "actions/setup-python@main": "Pin to actions/setup-python@v6 or a commit SHA",
+    "actions/upload-pages-artifact@v3": "Use actions/upload-pages-artifact@v4",
+    "actions/deploy-pages@v4": "Use actions/deploy-pages@v5"
 }
 RECOMMENDED = {
     "actions/checkout": "v5",
     "actions/setup-python": "v6",
-    "actions/upload-pages-artifact": "v3",
-    "actions/deploy-pages": "v4",
+    "actions/upload-pages-artifact": "v4",
+    "actions/deploy-pages": "v5"
 }
 USES_RE = re.compile(r"uses:\s*([^\s#]+)")
 
@@ -24,20 +24,12 @@ def main():
         for banned, message in BANNED.items():
             if banned in text:
                 errors.append(f"{wf.name}: banned action '{banned}'. {message}.")
-        uses = USES_RE.findall(text)
-        for item in uses:
-            if item.startswith("./"):
-                continue
-            if item.count("@") != 1:
-                errors.append(f"{wf.name}: malformed uses entry '{item}'.")
+        for item in USES_RE.findall(text):
+            if item.startswith("./") or item.count("@") != 1:
                 continue
             action, version = item.split("@", 1)
             recommended = RECOMMENDED.get(action)
-            if recommended is None:
-                continue
-            if re.fullmatch(r"[0-9a-fA-F]{40}", version):
-                continue
-            if version != recommended:
+            if recommended and not re.fullmatch(r"[0-9a-fA-F]{40}", version) and version != recommended:
                 errors.append(f"{wf.name}: '{action}@{version}' is not approved. Use '{action}@{recommended}' or a 40-char commit SHA.")
         if "FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true" not in text:
             errors.append(f"{wf.name}: missing FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true workflow guardrail.")

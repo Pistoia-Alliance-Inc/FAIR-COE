@@ -9,3 +9,11 @@ nav:
 redirects:
   - from: model/concepts.md
     to: model/canonical-model.md
+mkdocs_requests:
+  theme_features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+  plugins:
+    - name: graph
+      config:
+        name: title

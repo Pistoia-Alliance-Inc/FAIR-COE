@@ -1,0 +1,22 @@
+slug: fair-maturity-matrix
+section: FAIR Maturity Matrix
+docs_root: docs
+nav:
+- Overview: index.md
+- Concepts:
+  - Model: concepts/model.md
+redirects: []
+mkdocs_requests:
+  theme_features:
+  - navigation.sections
+  - navigation.top
+  plugins:
+  - name: minify
+    config:
+      minify_html: true
+  - name: graph
+    config:
+      name: title
+  markdown_extensions:
+  - admonition
+  - attr_list

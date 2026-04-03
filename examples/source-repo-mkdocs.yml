@@ -1,0 +1,20 @@
+site_name: FAIR Maturity Matrix
+theme:
+  name: material
+  features:
+    - navigation.sections
+    - navigation.top
+plugins:
+  - search
+  - minify:
+      minify_html: true
+  - graph:
+      name: title
+markdown_extensions:
+  - admonition
+  - attr_list
+docs_dir: docs
+nav:
+  - Overview: index.md
+  - Concepts:
+      - Model: concepts/model.md

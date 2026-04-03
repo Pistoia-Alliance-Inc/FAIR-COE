@@ -1,4 +1,15 @@
-mkdocs>=1.6
+mkdocs==1.6.1
 mkdocs-material>=9.6
+mkdocs-material[imaging]
 mkdocs-redirects>=1.2
+mkdocs-minify-plugin>=0.8.0
+mkdocs-macros-plugin>=1.0
+mkdocs-network-graph-plugin>=0
+mkdocs-plantuml-local
+mkdocs-git-revision-date-localized-plugin
 PyYAML>=6.0
+rdflib>=6.0.0
+linkml>=1.5.0
+chardet<6
+jsonschema>=4.22
+packaging>=24.0
