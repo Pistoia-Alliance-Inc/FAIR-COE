@@ -18,7 +18,6 @@ def define_env(env):
         tools=None,
         metrics=None
     ):
-
         goals = goals or []
         inputs = inputs or []
         activities = activities or []
@@ -36,78 +35,71 @@ def define_env(env):
         html = f'''
 <div class="dama-context">
 
-<div class="title">{escape(title)}</div>
+  <div class="title">{escape(title)}</div>
 
-<div class="box">
-<strong>Definition:</strong> {escape(definition)}
-</div>
+  <div class="box">
+    <strong>Definition:</strong> {escape(definition)}
+  </div>
 
-<div class="box goals">
-<strong>Goals:</strong>
-{ul(goals)}
-</div>
+  <div class="box goals">
+    <strong>Goals:</strong>
+    {ul(goals)}
+  </div>
 
-<div class="main-grid">
+  <div class="main-grid">
+    <div class="panel inputs arrow-right">
+      <h3>Inputs</h3>
+      {ul(inputs)}
+    </div>
 
-<div class="inputs">
-<h3>Inputs</h3>
-{ul(inputs)}
-</div>
+    <div class="panel activities arrow-right">
+      <h3>Activities</h3>
+      {ul(activities)}
+    </div>
 
-<div class="activities">
-<h3>Activities</h3>
-{ul(activities)}
-</div>
+    <div class="panel deliverables">
+      <h3>Deliverables</h3>
+      {ul(deliverables)}
+    </div>
+  </div>
 
-<div class="deliverables">
-<h3>Deliverables</h3>
-{ul(deliverables)}
-</div>
+  <div class="roles">
+    <div class="role-box">
+      <h4>Suppliers</h4>
+      {ul(suppliers)}
+    </div>
 
-</div>
+    <div class="role-box mid">
+      <h4>Participants</h4>
+      {ul(participants)}
+    </div>
 
-<div class="roles">
+    <div class="role-box">
+      <h4>Consumers</h4>
+      {ul(consumers)}
+    </div>
+  </div>
 
-<div>
-<h4>Suppliers</h4>
-{ul(suppliers)}
-</div>
+  <div class="bottom-pill">
+    <div>
+      <h4>Techniques</h4>
+      {ul(techniques)}
+    </div>
 
-<div>
-<h4>Participants</h4>
-{ul(participants)}
-</div>
+    <div>
+      <h4>Tools</h4>
+      {ul(tools)}
+    </div>
 
-<div>
-<h4>Consumers</h4>
-{ul(consumers)}
-</div>
-
-</div>
-
-<div class="bottom-pill">
-
-<div>
-<h4>Techniques</h4>
-{ul(techniques)}
-</div>
-
-<div>
-<h4>Tools</h4>
-{ul(tools)}
-</div>
-
-<div>
-<h4>Metrics</h4>
-{ul(metrics)}
-</div>
-
-</div>
+    <div>
+      <h4>Metrics</h4>
+      {ul(metrics)}
+    </div>
+  </div>
 
 </div>
 '''
         return html
-
 
     @env.macro
     def dama_context_from_json(data):
