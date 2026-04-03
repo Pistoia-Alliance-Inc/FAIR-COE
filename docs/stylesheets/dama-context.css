@@ -1,1 +1,210 @@
-/* Placeholder stylesheet for DAMA context components */
+.dama-context {
+  --dc-bg: #e9e9e9;
+  --dc-black: #111111;
+  --dc-blue-left: #a7d6ef;
+  --dc-blue-centre: #58c2f1;
+  --dc-yellow: #f2d56a;
+  --dc-green: #97d24f;
+  --dc-border: #111111;
+  --dc-text: #111111;
+
+  background: var(--dc-bg);
+  border: 2px solid #c33;
+  padding: 1.25rem 1.25rem 0.75rem;
+  color: var(--dc-text);
+  font-family: var(--md-text-font, sans-serif);
+  max-width: 1100px;
+  margin: 1rem auto;
+}
+
+.dama-context .title {
+  text-align: center;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  font-size: 1.35rem;
+  margin-bottom: 1rem;
+}
+
+/* definition / goals */
+
+.dama-context .box {
+  border: 3px solid var(--dc-border);
+  border-radius: 1.25rem;
+  padding: 1rem 1.25rem;
+  margin-bottom: 0.5rem;
+  background: white;
+}
+
+.dama-context .box.goals {
+  background: #000;
+  color: #fff;
+}
+
+/* drivers */
+
+.dama-context .driver {
+  text-align: center;
+  font-size: 0.95rem;
+  line-height: 1.2;
+  margin: 0.35rem 0;
+}
+
+.dama-context .driver .arrow {
+  display: block;
+  font-size: 2rem;
+  line-height: 1;
+}
+
+/* main activity grid */
+
+.dama-context .main-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.7fr 1.1fr;
+  gap: 0.9rem;
+  align-items: stretch;
+  margin-top: 0.25rem;
+}
+
+.dama-context .panel {
+  padding: 0.9rem 0.9rem 0.8rem;
+  min-height: 285px;
+  position: relative;
+}
+
+.dama-context .inputs {
+  background: var(--dc-blue-left);
+}
+
+.dama-context .activities {
+  background: var(--dc-blue-centre);
+}
+
+.dama-context .deliverables {
+  background: var(--dc-yellow);
+}
+
+.dama-context .panel h3 {
+  margin: 0 0 0.55rem;
+  font-size: 1.25rem;
+}
+
+.dama-context .panel p,
+.dama-context .panel li {
+  font-size: 0.95rem;
+  line-height: 1.35;
+}
+
+.dama-context .panel ul,
+.dama-context .roles ul {
+  margin-top: 0.35rem;
+}
+
+/* arrows between columns */
+
+.dama-context .panel.arrow-right::after {
+  content: "▶";
+  position: absolute;
+  right: -1.15rem;
+  top: 48%;
+  font-size: 1.8rem;
+  color: #000;
+}
+
+/* supplier / participant / consumer */
+
+.dama-context .roles {
+  display: grid;
+  grid-template-columns: 1fr 1.7fr 1.1fr;
+  gap: 0.9rem;
+  margin-top: 0.1rem;
+  align-items: start;
+}
+
+.dama-context .role-box {
+  padding: 0.2rem 0.6rem 0.6rem;
+  position: relative;
+}
+
+.dama-context .role-box.mid {
+  border-left: 3px solid #111;
+  border-right: 3px solid #111;
+}
+
+.dama-context .role-box h4 {
+  margin: 0.1rem 0 0.2rem;
+  font-size: 1.05rem;
+}
+
+/* technical drivers */
+
+.dama-context .tech-driver {
+  text-align: center;
+  margin: 0.2rem 0 0.75rem;
+  font-size: 0.95rem;
+  line-height: 1.2;
+}
+
+.dama-context .tech-driver .arrow {
+  display: block;
+  font-size: 2rem;
+  line-height: 1;
+}
+
+/* techniques / tools / metrics */
+
+.dama-context .bottom-pill {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  border: 3px solid var(--dc-border);
+  border-radius: 2.3rem;
+  overflow: hidden;
+  background: var(--dc-green);
+}
+
+.dama-context .bottom-pill > div {
+  padding: 0.65rem 0.9rem 0.8rem;
+  min-height: 110px;
+}
+
+.dama-context .bottom-pill > div:not(:last-child) {
+  border-right: 3px solid var(--dc-border);
+}
+
+.dama-context .bottom-pill h4 {
+  margin: 0 0 0.2rem;
+  font-size: 1.05rem;
+}
+
+.dama-context .legend {
+  text-align: center;
+  font-size: 0.95rem;
+  margin-top: 0.35rem;
+  font-weight: 600;
+}
+
+/* responsive */
+
+@media screen and (max-width: 900px) {
+
+  .dama-context .main-grid,
+  .dama-context .roles,
+  .dama-context .bottom-pill {
+    grid-template-columns: 1fr;
+  }
+
+  .dama-context .panel.arrow-right::after {
+    display: none;
+  }
+
+  .dama-context .role-box.mid {
+    border-left: none;
+    border-right: none;
+    border-top: 3px solid #111;
+    border-bottom: 3px solid #111;
+  }
+
+  .dama-context .bottom-pill > div:not(:last-child) {
+    border-right: none;
+    border-bottom: 3px solid var(--dc-border);
+  }
+}
