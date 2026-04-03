@@ -20,3 +20,11 @@ repositories:
     checkout_path: .cache/repos/repo-c
     remote_url_env: REPO_C_URL
     required: false
+  - id: fair-maturity-matrix
+    slug: fair-maturity-matrix
+    repository: chris-day/FAIR-Maturity-Matrix
+    local_example_path: examples/fair-maturity-matrix
+    checkout_path: .cache/repos/fair-maturity-matrix
+    remote_url_env: FAIR_MATURITY_MATRIX_URL
+    required: true
+ 
