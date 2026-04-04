@@ -2,7 +2,7 @@ promotion:
   release_id: public-docs-example-release
   repositories:
     - slug: fair-maturity-matrix
-      ref: refs/tags/docs-public-v1.0.2
+      ref: refs/tags/docs-public-v1.0.3
     - slug: repo-a
       ref: refs/tags/docs-public-v1.0.0
     - slug: repo-b
