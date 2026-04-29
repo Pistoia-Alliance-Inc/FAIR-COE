@@ -18,10 +18,10 @@ def promotion_map():
     return {r["slug"]: r["ref"] for r in load_promotion().get("repositories", [])}
 
 def load_repo_metadata(repo_path: Path) -> dict:
-    path = repo_path / "docs-metadata.yml"
-    if not path.exists():
-        raise FileNotFoundError(f"{path} does not exist")
-    return load_yaml(path)
+    meta = repo_path / "docs-metadata.yml"
+    if not meta.exists():
+        raise FileNotFoundError(f"{meta} does not exist")
+    return load_yaml(meta)
 
 def resolve_repo_paths(from_examples: bool):
     repos = []
@@ -40,4 +40,5 @@ def load_available_repo_slugs():
     p = available_repos_manifest_path()
     if not p.exists():
         return None
-    return set(json.loads(p.read_text(encoding="utf-8")).get("available_slugs", []))
+    data = json.loads(p.read_text(encoding="utf-8"))
+    return set(data.get("available_slugs", []))
