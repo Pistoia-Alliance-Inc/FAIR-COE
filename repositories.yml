@@ -12,4 +12,4 @@ repositories:
     local_example_path: examples/pa-fair-maturity-matrix
     checkout_path: .cache/repos/pa-fair-maturity-matrix
     remote_url_env: PA_FAIR_MATURITY_MATRIX_URL
-    required: false 
+    required: true 
