@@ -39,7 +39,7 @@ jobs:
       - run: python scripts/check_links.py
       - run: mkdocs build -f mkdocs.generated.yml --strict
       - run: python scripts/write_promotion_manifest.py
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@v4
         with:
           path: site
 
@@ -49,4 +49,4 @@ jobs:
     environment:
       name: github-pages
     steps:
-      - uses: actions/deploy-pages@v4
+      - uses: actions/deploy-pages@v5
