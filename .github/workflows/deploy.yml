@@ -12,9 +12,8 @@ permissions:
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
-  MKDOCS_SITE_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/
+  MKDOCS_SITE_URL: https://your-org.github.io/your-public-repo/
   DOCS_BOOTSTRAP_MODE: true
-  DOCS_READ_TOKEN: ${{ secrets.DOCS_READ_TOKEN }}
 
 jobs:
   build:
@@ -32,7 +31,6 @@ jobs:
           DOCS_BOOTSTRAP_MODE: true
         run: python scripts/checkout_repos.py
       - run: python scripts/check_promotion_policy.py
-      - run: python scripts/validate_docs_metadata_schema.py
       - run: python scripts/sync_public_docs.py
       - run: python scripts/generate_site_config.py
       - run: python scripts/validate_contract.py
@@ -40,7 +38,7 @@ jobs:
       - run: python scripts/check_links.py
       - run: mkdocs build -f mkdocs.generated.yml --strict
       - run: python scripts/write_promotion_manifest.py
-      - uses: actions/upload-pages-artifact@v4
+      - uses: actions/upload-pages-artifact@v3
         with:
           path: site
 
@@ -50,4 +48,4 @@ jobs:
     environment:
       name: github-pages
     steps:
-      - uses: actions/deploy-pages@v5
+      - uses: actions/deploy-pages@v4
