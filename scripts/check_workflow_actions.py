@@ -9,13 +9,14 @@ BANNED = {
     "actions/checkout@main": "Pin to actions/checkout@v5 or a commit SHA",
     "actions/setup-python@main": "Pin to actions/setup-python@v6 or a commit SHA",
 }
-RECOMMENDED = {
-    "actions/checkout": "v5",
-    "actions/setup-python": "v6",
-    "actions/upload-pages-artifact": "v3",
-    "actions/deploy-pages": "v4",
+MINIMUM_APPROVED_MAJOR = {
+    "actions/checkout": 5,
+    "actions/setup-python": 6,
+    "actions/upload-pages-artifact": 3,
+    "actions/deploy-pages": 4,
 }
 USES_RE = re.compile(r"uses:\s*([^\s#]+)")
+MAJOR_TAG_RE = re.compile(r"v(\d+)$")
 
 def main():
     errors = []
@@ -32,13 +33,18 @@ def main():
                 errors.append(f"{wf.name}: malformed uses entry '{item}'.")
                 continue
             action, version = item.split("@", 1)
-            recommended = RECOMMENDED.get(action)
-            if recommended is None:
+            minimum_major = MINIMUM_APPROVED_MAJOR.get(action)
+            if minimum_major is None:
                 continue
             if re.fullmatch(r"[0-9a-fA-F]{40}", version):
                 continue
-            if version != recommended:
-                errors.append(f"{wf.name}: '{action}@{version}' is not approved. Use '{action}@{recommended}' or a 40-char commit SHA.")
+            major_match = MAJOR_TAG_RE.fullmatch(version)
+            if major_match and int(major_match.group(1)) >= minimum_major:
+                continue
+            errors.append(
+                f"{wf.name}: '{action}@{version}' is not approved. "
+                f"Use '{action}@v{minimum_major}' or newer, or a 40-char commit SHA."
+            )
         if "FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true" not in text:
             errors.append(f"{wf.name}: missing FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true workflow guardrail.")
     if errors:

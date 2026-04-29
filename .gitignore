@@ -5,3 +5,4 @@ site/
 __pycache__/
 *.pyc
 mkdocs.generated.yml
+helper.txt
