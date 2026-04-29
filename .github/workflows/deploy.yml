@@ -14,6 +14,7 @@ env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
   MKDOCS_SITE_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/
   DOCS_BOOTSTRAP_MODE: true
+  DOCS_READ_TOKEN: ${{ secrets.DOCS_READ_TOKEN }}
 
 jobs:
   build:
