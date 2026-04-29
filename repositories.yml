@@ -6,4 +6,10 @@ repositories:
     checkout_path: .cache/repos/fair-maturity-matrix
     remote_url_env: FAIR_MATURITY_MATRIX_URL
     required: true
- 
+  - id: pa-fair-maturity-matrix
+    slug: pa-fair-maturity-matrix
+    repository: Pistoia-Alliance-Inc/FAIR-Maturity-Matrix
+    local_example_path: examples/pa-fair-maturity-matrix
+    checkout_path: .cache/repos/pa-fair-maturity-matrix
+    remote_url_env: PA_FAIR_MATURITY_MATRIX_URL
+    required: true 
