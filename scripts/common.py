@@ -11,6 +11,9 @@ def load_yaml(path: Path) -> dict:
 def load_registry():
     return load_yaml(ROOT / "repositories.yml").get("repositories", [])
 
+def load_repositories():
+    return load_registry()
+
 def load_promotion():
     return load_yaml(ROOT / "promotion.yml").get("promotion", {})
 

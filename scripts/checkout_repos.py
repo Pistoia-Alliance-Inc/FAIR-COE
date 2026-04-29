@@ -1,15 +1,15 @@
 import argparse
+import json
 import os
 import subprocess
 from pathlib import Path
 
 from common import (
     ROOT,
+    available_repos_manifest_path,
     load_repositories,
     load_promotion,
 )
-
-CACHE = ROOT / ".cache" / "repos"
 
 def bootstrap_mode_enabled():
     return os.environ.get("DOCS_BOOTSTRAP_MODE", "false").lower() == "true"
@@ -178,9 +178,10 @@ def main():
 
         print(msg)
 
-    CACHE.mkdir(parents=True, exist_ok=True)
-    (CACHE / "available_repositories.txt").write_text(
-        "\n".join(sorted(set(available))),
+    manifest_path = available_repos_manifest_path()
+    manifest_path.parent.mkdir(parents=True, exist_ok=True)
+    manifest_path.write_text(
+        json.dumps({"available_slugs": sorted(set(available))}, indent=2) + "\n",
         encoding="utf-8",
     )
 
