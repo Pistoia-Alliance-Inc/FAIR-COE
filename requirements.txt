@@ -5,7 +5,7 @@ mkdocs-redirects>=1.2
 mkdocs-minify-plugin>=0.8.0
 mkdocs-macros-plugin>=1.0
 mkdocs-network-graph-plugin>=0
-mkdocs-plantuml-local
+plantuml-markdown>=3.11
 mkdocs-git-revision-date-localized-plugin
 PyYAML>=6.0
 rdflib>=6.0.0

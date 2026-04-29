@@ -18,6 +18,8 @@ markdown_extensions:
   - admonition
   - attr_list
   - md_in_html
+  - plantuml_markdown:
+      format: svg
   - pymdownx.details
   - pymdownx.superfences
   - pymdownx.arithmatex:
