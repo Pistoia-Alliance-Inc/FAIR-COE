@@ -4,4 +4,4 @@ promotion:
     - slug: fair-maturity-matrix
       ref: refs/tags/docs-public-v1.0.8
     - slug: pa-fair-maturity-matrix
-      ref: refs/tags/public-docs-v1.0.8
+      ref: refs/tags/docs-public-v1.0.8
