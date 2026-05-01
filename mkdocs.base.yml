@@ -2,6 +2,9 @@ site_name: FAIR-Community of Experts Documentation Hub
 
 theme:
   name: material
+  logo: images/new-pisto-logo.png
+  icon:
+    repo: fontawesome/brands/github
 
 plugins:
   - search
