@@ -26,6 +26,10 @@ markdown_extensions:
       generic: true
   - pymdownx.tabbed:
       alternate_style: true
+      alternate_style: true
+      slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower
 
 extra_javascript:
   - javascripts/mathjax.js
