@@ -16,6 +16,10 @@ plugins:
       name: "title"
   - macros:
       on_error_fail: true
+  - tags:
+      tags_slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower
 
 markdown_extensions:
   - admonition
