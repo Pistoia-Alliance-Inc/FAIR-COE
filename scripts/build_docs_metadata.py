@@ -5,7 +5,7 @@ import yaml
 SITE_WIDE_PLUGINS_TO_IGNORE = {"search", "redirects"}
 
 def load_yaml(path: Path) -> dict:
-    return yaml.safe_load(path.read_text(encoding="utf-8")) or {}
+    return yaml.load(path.read_text(encoding="utf-8"), Loader=yaml.Loader) or {}
 
 def normalise_redirects(plugins):
     redirects = []
@@ -109,7 +109,7 @@ def main():
 
     output = Path(args.output) if args.output else repo / "docs-metadata.yml"
     output.write_text(
-        yaml.safe_dump(metadata, sort_keys=False, allow_unicode=True),
+        yaml.dump(metadata, sort_keys=False, allow_unicode=True),
         encoding="utf-8",
     )
     print(f"Wrote {output}")

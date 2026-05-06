@@ -6,7 +6,7 @@ import json
 ROOT = Path(__file__).resolve().parent.parent
 
 def load_yaml(path: Path) -> dict:
-    return yaml.safe_load(path.read_text(encoding="utf-8")) or {}
+    return yaml.load(path.read_text(encoding="utf-8"), Loader=yaml.Loader) or {}
 
 def load_registry():
     return load_yaml(ROOT / "repositories.yml").get("repositories", [])
