@@ -4,4 +4,4 @@ promotion:
 #    - slug: fair-maturity-matrix
 #      ref: refs/tags/docs-public-v1.0.9
     - slug: fair-maturity-matrix
-      ref: refs/tags/docs-public-v1.0.9
+      ref: refs/tags/docs-public-v1.0.11
