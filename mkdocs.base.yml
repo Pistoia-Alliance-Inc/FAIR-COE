@@ -5,6 +5,12 @@ theme:
   logo: images/new-pisto-logo.png
   icon:
     repo: fontawesome/brands/github
+  features:
+#    - navigation.sections
+    - navigation.top 
+    - search.suggest
+    - search.highlight
+    - navigation.footer
 
 plugins:
   - search
@@ -54,3 +60,18 @@ extra:
       find what they're searching for. With your consent, you're helping us to
       make our documentation better.
   generator: false
+
+validation:
+  nav:
+    omitted_files: info
+    not_found: warn
+    absolute_links: info
+  links:
+    not_found: warn
+    anchors: ignore
+    absolute_links: info
+    unrecognized_links: info
+
+repo_url: https://github.com/Pistoia-Alliance-Inc/FAIR-COE
+repo_name: Pistoia-Alliance-Inc/FAIR-COE
+copyright: Copyright &copy; Pistoia Alliance Inc
