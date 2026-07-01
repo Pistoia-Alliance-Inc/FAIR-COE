@@ -5,3 +5,5 @@ promotion:
 #      ref: refs/tags/docs-public-v1.0.9
     - slug: fair-maturity-matrix
       ref: refs/tags/docs-public-v1.0.18
+    - slug: fair-business-value
+      ref: refs/tags/docs-public-fbv-v1.0.0

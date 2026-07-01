@@ -12,4 +12,11 @@ repositories:
     local_example_path: examples/fair-maturity-matrix
     checkout_path: .cache/repos/fair-maturity-matrix
     remote_url_env: FAIR_MATURITY_MATRIX_URL
-    required: true 
+    required: true
+  - id: fair-business-value
+    slug: fair-business-value
+    repository: Pistoia-Alliance-Inc/FAIR-business-value
+    local_example_path: examples/fair-business-value
+    checkout_path: .cache/repos/fair-business-value
+    remote_url_env: FAIR_BUSINESS_VALUE_URL
+    required: true
