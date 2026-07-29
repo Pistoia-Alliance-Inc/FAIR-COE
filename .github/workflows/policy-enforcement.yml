@@ -10,6 +10,7 @@ env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
   MKDOCS_SITE_URL: https://example.github.io/docs-hub/
   DOCS_BOOTSTRAP_MODE: true
+  DISABLE_MKDOCS_2_WARNING: true  
 
 jobs:
   workflow-guardrails:
