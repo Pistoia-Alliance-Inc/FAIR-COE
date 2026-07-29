@@ -3,5 +3,6 @@ promotion:
   repositories:
 #    - slug: fair-maturity-matrix
 #      ref: refs/tags/docs-public-v1.0.9
+# note: efs/tags/docs-public-v1.0.19 resulted in a 404 - to check
     - slug: fair-maturity-matrix
-      ref: refs/tags/docs-public-v1.0.19
+      ref: refs/tags/docs-public-v1.0.18
